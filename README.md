@@ -1,6 +1,6 @@
 # flutter_notes
 
-A new Flutter project.
+I have started organizing this project and I am learning the process of app development with Flutter. In this project, I aim to create mobile apps using Dart and Flutter technologies. My goal is to make a useful and beautiful mobile app and to better understand the Flutter ecosystem
 
 ## Getting Started
 
