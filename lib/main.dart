@@ -34,24 +34,31 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  @override
-  void initState() { // uygulama sayfası açıldığında çalışan method 
-
-    super.initState();
-    print("Uygulama Açıldı");
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("Başlık"),
+        title: Text(widget.title),
       ),
-      body: Center(
-        child: Text("Merhaba"),
+      body: Row(
+        children: [
+          Container(width: 80,height: 80, color: Colors.red,),
+          Container(width: 50,height: 50,color: Colors.blue,),
+          Container(width: 100,height: 100,color: Colors.orange,),
+          Column(
+        children:  [
+          Container(width: 80,height: 80,color: Colors.red,),
+          Container(width: 50,height: 50,color: Colors.blue,),
+          Container(width: 100,height: 100,color: Colors.orange,),
+        ],
+      )
+        ],
       ),
-
     );
   }
+
+
+
 }

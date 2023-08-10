@@ -2,6 +2,8 @@
 
 // Projeye kütüphane ,resim, veritabını eklemek istediğimizde "pubspec.yaml" dosyasına eklememiz gerekiyor . daha sonrasında pub get dememiz gerekli (projeye aktarmak için
 
+import 'package:flutter/cupertino.dart';
+
 ornek olarak dizine veritabani klasörü ekler ve içerisene rehber.sqlite dosyası eklersek
     pubspec.yaml dosyasına
                               assets:
@@ -20,6 +22,12 @@ ekleme bu şekilde yapılıyor
       super.initState();
       print("Uygulama Açıldı");
     }
+
+
+    3 adet tasarım alt yapısı var
+1- Row      Satır  yan yana
+2- Column   Sütün  alt alta
+3- Stack    İçiçe  üst üste
 
 
 
