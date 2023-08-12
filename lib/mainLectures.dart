@@ -166,25 +166,190 @@ Burada 2 tane kullanım şekli var
           mainAxisSize: MainAxisSize.max,
 
 
+----------------------------------------------------  Center kullanımı   ----------------------------------------------------------------------
+      body:Row(
+        children: [
+          Container(
+            width: 250,
+            height: 250,
+            color: Colors.orange,
+            child: Center(
+              child: Text("Merhaba"),
+            ),
+          )
+        ],
+      )
+
+
+      Örnek 2   -- hem satır olarak hem sütün olarak ortalar
+
+        body:Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 250,
+              height: 250,
+              color: Colors.orange,
+              child: Center(
+                child: Text("Merhaba"),
+              ),
+            )
+          ],
+        ),
+      )
+----------------------------------------------------  Align Kullanımı    ----------------------------------------------------------------------
+Burada 9 kullanım şekli var
+  1-) topcenter               // yazıyı kutucuğun üst orta kısmına yerleştirir
+  2-) topleft                 // yazıyı kutucuğun üst sol kısmına yerleştirir
+  3-) topright                // yazıyı kutucuğun üst sağ kısmına yerleştirir
+  4-) centerright             // yazıyı kutucuğun orta sağ kısmına yerleştirir
+  5-) centerleft              // yazıyı kutucuğun orta sol kısmına yerleştirir
+  6-) center                  // yazıyı kutucuğun orta orta kısmına yerleştirir
+  7-) bottomright             // yazıyı kutucuğun alt sağ kısmına yerleştirir
+  8-) bottomleft              // yazıyı kutucuğun alt sol kısmına yerleştirir
+  9-) bottomcenter            // yazıyı kutucuğun alt orta kısmına yerleştirir
+
+                                              ÖRNEKLER
+    body:Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 250,
+              height: 250,
+              color: Colors.orange,
+              child: Align(
+                alignment:Alignment.topLeft,
+                child: Text("Merhaba"),
+              ),
+            )
+          ],
+        ),
+      )
 
 
 
 
+    body:Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 250,
+              height: 250,
+              color: Colors.orange,
+              child: Align(
+                alignment:Alignment.bottomRight,
+                child: Text("Merhaba"),
+              ),
+            )
+          ],
+        ),
+      )
+----------------------------------------------------   SizedBox Kullanımı   ----------------------------------------------------------------------
 
+1-Container ı baştan boyutlandırma işlemi var burada
+
+    body:Row(
+        children: [
+          Container(width: 80,height: 80,color: Colors.yellow,),
+          SizedBox(
+            width: 120,
+            height: 120,
+            child: Container(width: 50,height: 50,color: Colors.blue,),
+          ),
+          Container(width: 100,height: 100,color: Colors.green,),
+        ],
+      )
+
+
+
+2- bu kullanımda sarı ve mavi kutu arasında bokluş oluşturdu
+
+    body:Row(
+        children: [
+          Container(width: 80,height: 80,color: Colors.yellow,),
+          SizedBox(width: 100,height: 100,),
+          Container(width: 50,height: 50,color: Colors.blue,),
+          Container(width: 100,height: 100,color: Colors.green,),
+        ],
+      )
+----------------------------------------------------    Spacer Kullanımı     ----------------------------------------------------------------------
+
+1- burada boşluk bırakmaya yarar,
+
+      body: Column(
+        children: [
+          Container(width: 80,height: 80,color: Colors.yellow,),
+          Spacer(),
+          Container(width: 50,height: 50,color: Colors.blue,),
+          Container(width: 100,height: 100,color: Colors.green,),
+        ]
+      ),
+
+2- burada sarı-mavi arasındaki boşlu %30 mavi-yeşil arasındaki boşluk %70 dir
+
+      body: Column(
+        children: [
+          Container(width: 80,height: 80,color: Colors.yellow,),
+          Spacer(flex: 30,),
+          Container(width: 50,height: 50,color: Colors.blue,),
+          Spacer(flex: 70,),
+          Container(width: 100,height: 100,color: Colors.green,),
+        ]
+      ),
+----------------------------------------------------   Padding Kullanımı   ----------------------------------------------------------------------
+1-Padding sayasında widgetların çevresine boşluk oluşturabiliyoruz.
+   -(1)    EdgeInsets.all() sayasında her tarafa aynı miktarda boşluk verebiliriz
+   -(2)    EggeInsets.only() sayesinde istediğim kısma boşluk verebiliriz.
+
+  1-
+       body: Row(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Container(width: 100,height: 100,color: Colors.yellow,),
+          ),
+          Container(width: 100,height: 100,color:Colors.blue),
+          Container(width: 100,height: 100,color:Colors.green),
+        ],
+      ),
+
+  2-
+      body: Row(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 20,right: 50,bottom: 20,top: 25),
+            child: Container(width: 100,height: 100,color: Colors.yellow,),
+          ),
+          Container(width: 100,height: 100,color:Colors.blue),
+          Container(width: 100,height: 100,color:Colors.green),
+        ],
+      ),
+
+
+      body: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(width: 100,height: 100,color:Colors.yellow),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(width: 100,height: 100,color:Colors.blue),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(width: 100,height: 100,color:Colors.green),
+          ),
+        ],
+      ),
 
 
 
 ----------------------------------------------------            ----------------------------------------------------------------------
 
-----------------------------------------------------            ----------------------------------------------------------------------
-
-----------------------------------------------------            ----------------------------------------------------------------------
-
-----------------------------------------------------            ----------------------------------------------------------------------
-
-----------------------------------------------------            ----------------------------------------------------------------------
-
-----------------------------------------------------            ----------------------------------------------------------------------
 
 ----------------------------------------------------            ----------------------------------------------------------------------
 
