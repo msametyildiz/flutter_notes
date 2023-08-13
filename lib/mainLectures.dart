@@ -350,6 +350,28 @@ Burada 9 kullanım şekli var
 
 ----------------------------------------------------            ----------------------------------------------------------------------
 
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            flex: 60,
+              child: Container(width: 100,height: 100,color: Colors.red,)
+          ),
+          Expanded(
+            flex: 40,
+              child: Container(width: 100,height: 100,color: Colors.blue,)
+          ),
+        ],
+      ),
+
+    );
+  }
 
 ----------------------------------------------------            ----------------------------------------------------------------------
 
