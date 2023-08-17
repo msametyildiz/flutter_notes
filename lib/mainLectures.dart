@@ -348,284 +348,78 @@ Burada 9 kullanım şekli var
 
 
 
-----------------------------------------------------            ----------------------------------------------------------------------
+----------------------------------------------------   Expanded Özelliği         ----------------------------------------------------------------------
+Widget bulunduğu alanda Row içindeyse yatay Column içindeyse dikeyde boş alan bırakır.
+                                         Expanded
+      body: Row(
+        children: <Widget> [
+          Expanded(child: Container(width: 100,height: 100,color: Colors.red,)),
+          Expanded(child: Container(width: 100,height: 100,color: Colors.blue)),
+        ],
+      )
+  **  burada iki renge de expanded özelliği vermemiz iki rengin sağında kalan boşluğu kullanarak
+    ikisininde aynı oranda boşlukları doldurması içindi
 
-@override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+
+
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
+        children: <Widget> [
+          Expanded(child: Container(width: 100,height: 100,color: Colors.red,)),
+          Container(width: 100,height: 100,color: Colors.blue),
+        ],
+      )
+
+  ** bir tanesinde expanded kullanırsak mavi olan containerın boyutunu verdikten sonra diğeri kalan kısmı kaplar
+  ** bu iki örnekte de yayılım oranları 50 - 50 şeklinde Bu durumu değiştirmek için şunu kullanabiliriz .
+                                    Flex
+
+      body: Column(
+        children: <Widget> [
           Expanded(
-            flex: 60,
+              flex: 30,
               child: Container(width: 100,height: 100,color: Colors.red,)
           ),
+          Expanded (
+            flex: 70,
+              child : Container(width: 100,height: 100,color: Colors.blue)
+          ),
+        ],
+      )
+
+    ** burada flex vererek 30 a 70 oranda renkleri ayırdık.
+
+
+    body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget> [
           Expanded(
-            flex: 40,
-              child: Container(width: 100,height: 100,color: Colors.blue,)
+              flex: 30,
+              child: Container(width: 100,height: 100,color: Colors.red,)
+          ),
+          Expanded (
+            flex: 70,
+              child : Container(width: 100,height: 100,color: Colors.blue)
           ),
         ],
-      ),
+      )
 
-    );
-  }
+      ** eğer buradaki gibi bir crossAxisAlignment özelliği verirlirse tam ekrana doldurur sütünü ve satırı.
 
----------------------------------------------------- Resim Ekleme           ----------------------------------------------------------------------
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+----------------------------------------------------     Widget Özelleştirme        ----------------------------------------------------------------------
 
 
 
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: [
-          Image.asset("resimler/yemekresim.jpeg"),
-          Text("Yemek"),
-        ],
-      ),
-
-    );
-  }
-}
-----------------------------------------------------            ----------------------------------------------------------------------
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
 
 
 
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
 
 
-  @override
-  Widget build(BuildContext context) {
 
-    var ekranBilgisi = MediaQuery.of(context);
-    final double ekranYuksekligi = ekranBilgisi.size.height;
-    final double ekranGenisligi = ekranBilgisi.size.width;
+----------------------------------------------------     Widget Özelleştirme        ----------------------------------------------------------------------
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top:ekranYuksekligi/100),
-            child: SizedBox(
-                width: ekranGenisligi/2,
-                height: ekranYuksekligi/5,
-                child: Image.asset("resimler/resim.jpg")
-            ),
-          ),
-          Container(width: ekranGenisligi,height: ekranYuksekligi/4,color: Colors.red,),
-          Text("Merhaba",style: TextStyle(fontSize: ekranGenisligi/10),),
-        ],
-      ),
+----------------------------------------------------     Widget Özelleştirme        ----------------------------------------------------------------------
 
-    );
-  }
-}
+----------------------------------------------------     Widget Özelleştirme        ----------------------------------------------------------------------
 
-----------------------------------------------------            ----------------------------------------------------------------------
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: "İlham Ver"),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    var ekranBilgisi = MediaQuery.of(context);
-    final double ekranYuksekligi = ekranBilgisi.size.height;
-    final double ekranGenisligi = ekranBilgisi.size.width;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        backgroundColor: Colors.blueGrey,
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding:  EdgeInsets.only(top:ekranYuksekligi/100,bottom: ekranYuksekligi/100),
-            child: SizedBox(
-                width: ekranGenisligi/4,
-                child: Image.asset("resimler/stevejobs.png")
-            ),
-          ),
-          Text("Steve Jobs",
-            style: TextStyle(
-              color: Colors.redAccent,
-              fontWeight: FontWeight.bold,
-              fontSize: ekranGenisligi/25,
-            ),
-          ),
-          Spacer(),
-          Padding(
-            padding:  EdgeInsets.only(left:ekranGenisligi/100,right: ekranGenisligi/100),
-            child: Text("Dünyayı değiştirecek insanlar, "
-                "onu değiştirebileceklerini düşünecek kadar çılgın olanlardır.",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: ekranGenisligi/25,
-              ),
-            ),
-          ),
-          Spacer(),
-          Padding(
-            padding:  EdgeInsets.only(bottom: ekranYuksekligi/100),
-            child: SizedBox(
-              width: ekranGenisligi/2,
-              height: ekranYuksekligi/15,
-              child: ElevatedButton(
-                child: Text("İLHAM VER",style: TextStyle(color:Colors.white,fontSize: ekranGenisligi/25),),
-                onPressed: (){
-                  print("İlham verildi");
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-
-    );
-  }
-}
-
-
-----------------------------------------------------            ----------------------------------------------------------------------
-
-
-// ---------------------------------------------  Try-Catch Kullanımı   -----------------------------------------------------------------------------
-
-  derleme sırasında oluşabilecek hatalar için kullanılır .
-
-  try {
-      kontrol edilecek kodlar buraya yazılmalır
-  }catch(e){
-      hata oluşunca burası çalışır
-  }
-
-
-  var sayilar = <int>[];
-  sayilar.add(12);  //0.index
-  sayilar.add(53);  //1.index
-  sayilar.add(25);  //2.index
-
-  sayilar[2]=20; // burada hata almayız 2. index var
-  //sayilar[3]=10; // burada hata alırız çünkü 3.index yok
-  // bu yapıdan sonra hata olduğu satırdan itibaren try duracak ve catch e geçecek
-  try{
-    sayilar[3]=10;
-    print("islem tamam ");
-  }catch(e){
-    print("listenin boyutunu astınız . ");
-  }
-
-
-    Asenkron işlemler aynı anda birden fazla işlem yapmak anlamına gelir .
-    aynı anda birden fazla işlem yapıldığı için daha verimli kod çalışması elde edilir
-
-        Future, async ve await
-        Future : fonksiyon tanımlanmasında fonksiyon isminden önce gelir. methodun asenkron olarak çalişacagini ve await methodu ile
-                  karşılaştığı zaman askıya alacağını bildirir.
-        Async : fonksiyon tanımlanmasından sonra gelir ve asenkron çalışmak istediğimiz yapılarda kullanılır ve aynı zamanda birden
-                  fazla işlem yaptırmak için kullanılır. ornek : dosya işlemleri, internetten veri alirken gibi
-        Await : Sadece async fonksiyonları içerisinde kullanılır .amaç asenkron işlemler yaparken yarım kalan bazı kodlama hataları olabilir
-                  hata oluşturmaması için await kullanılır ve asenkron işlemler içinde kodlamanın bitmesi beklenir.
-
-
-    Future<void> main () async {
-        print("Verilerin Alınması Bekleniyor...");
-        var veri = await veriTabaniVeriAl();   // burada await yazmaz isek program çalışır fakat bu kısımda bir hata alınır
-        print("Veriler alınıyor...");
-        print("Alınan Veri : $veri");
-    }
-
-    Future<String> veriTabaniVeriAl() async{
-        for (var i=1;i<=5;i++){
-            Future.delayed(Duration(seconds: i), () => print("Alinan veri miktari : ${i*20}"));
-        }
-        return Future.delayed(Duration(seconds: 5), () => "Veritabanı Veri Kümesi");
-    }
 
  */
