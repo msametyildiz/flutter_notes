@@ -40,30 +40,31 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body:Center(  // satır içerisinde ortalma yapmak için
+      body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,  // sütun içerisinde ortalama yapmak için
-          children: <Widget>[
-              MaviKare(),
-            SizedBox(height: 20,),  // her iki karenin arasına boşluk koymaya yarar
-            KirmiziKare(),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
           ],
         ),
-      )
+      ),
     );
   }
 }
-class MaviKare extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Container(width: 50,height: 50,color: Colors.blue,);
-  }
-}
 
-class KirmiziKare extends StatelessWidget {
+class TabletTasarim extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    return Container(width: 50,height: 50,color: Colors.red,);
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("resimler/stevejabs@2x.png"),
+          Text("Steve Job", style :TextStyle(fontSize: 20.0),)
+          ],
+      ),
+    );
   }
 }
 
