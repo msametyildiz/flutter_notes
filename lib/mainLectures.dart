@@ -484,91 +484,73 @@ Widget bulunduğu alanda Row içindeyse yatay Column içindeyse dikeyde boş ala
 
 
 ----------------------------------------------------     Widget Özelleştirme        ----------------------------------------------------------------------
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
 
 
+----------------------------------------------------     Widget Özelleştirme        ----------------------------------------------------------------------
 
-  final String title;
+    class _MyHomePageState extends State<MyHomePage> {
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+            title: Text(widget.title),
+          ),
+          body:Center(  // satır içerisinde ortalma yapmak için
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,  // sütun içerisinde ortalama yapmak için
+              children: <Widget>[
+                  MaviKare(),
+                SizedBox(height: 20,),  // her iki karenin arasına boşluk koymaya yarar
+                KirmiziKare(),
+                SizedBox(height: 20,),
+                Yazi("Merhaba",24.0),
+              ],
+            ),
+          )
+        );
+      }
+    }
+    class MaviKare extends StatelessWidget{
+      @override
+      Widget build(BuildContext context) {
+        return Container(width: 50,height: 50,color: Colors.blue,);
+      }
+    }
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: LayoutBuilder(
-        builder: (BuildContext context,BoxConstraints constraints){
-          if(constraints.maxWidth < 600){
-            return TelefonTasarim();
-          }else{
-            return TabletTasarim();
-          }
-        }
-      ),
-
-    );
-  }
-}
-
-
-class TabletTasarim extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-           Image.asset("resimler/stevejobs@2x.png"),
-           Text("Steve Jobs",style: TextStyle(fontSize: 30.0),)
-        ],
-      ),
-    );
-  }
-}
-
-class TelefonTasarim extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset("resimler/stevejobs@1x.png"),
-          Text("Steve Jobs",style: TextStyle(fontSize: 20.0),)
-        ],
-      ),
-    );
-  }
-}
+    class KirmiziKare extends StatelessWidget {
+      @override
+      Widget build(BuildContext context) {
+        return Container(width: 50,height: 50,color: Colors.red,);
+      }
+    }
+    class Yazi extends StatelessWidget {
+      late String icerik;
+      late double yaziBoyutu;
+      Yazi(this.icerik,this.yaziBoyutu);
+      @override
+      Widget build(BuildContext context) {
+        return Text(icerik,style: TextStyle(fontSize: yaziBoyutu),);
+      }
+    }
 
 
+----------------------------------------------------     Projeye Resim Ekleme   ----------------------------------------------------------------------
+  Gereklilikler
+  -resim
+  -dosyaya resmi aktarmak gerekli
+  -resimi pubspec dosyasında tanımlamak gerekli
+  (   assets:
+     - resimler/avatar.png
+  ) kısmını aktif edip ekleme yaptık
+
+  -en sonunda image denilelen wwidget la yapacağız
+
+
+        body: Column(
+          children: [
+            Image.asset("resimler/avatar.png"),
+            Text("Avatar"),
+          ],
+        )
  */
