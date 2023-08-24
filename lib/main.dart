@@ -40,22 +40,14 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top:ekranYuksekligi/100),
-            child: SizedBox(
-                width: ekranGenisligi/2,
-                height: ekranYuksekligi/5,
-                child: Image.asset("resimler/resim.jpg")
-            ),
-          ),
-          Container(width: ekranGenisligi,height: ekranYuksekligi/4,color: Colors.red,),
-          Text("Merhaba",style: TextStyle(fontSize: ekranGenisligi/10),),
-        ],
-      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
 
-    );
+          ],
+        ),
+      ),
     );
   }
 }
