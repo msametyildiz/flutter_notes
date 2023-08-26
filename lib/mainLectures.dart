@@ -485,5 +485,109 @@ Widget bulunduğu alanda Row içindeyse yatay Column içindeyse dikeyde boş ala
 
 ----------------------------------------------------     Widget Özelleştirme        ----------------------------------------------------------------------
 
+Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Invoke "debug painting" (press "p" in the console, choose the
+          // "Toggle Debug Paint" action from the Flutter Inspector in Android
+          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+          // to see the wireframe for each widget.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ],
+        ),
+      ),
+
+
+      SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+                width: ekranGenisligi,
+                child: Image.asset("resimler/yemekresim.jpeg")
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: ekranGenisligi/8,
+                    child: TextButton(
+                      child: Yazi("Beğen", ekranGenisligi/25),
+                      onPressed: (){
+                        print("Beğenildi");
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.orange,
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: SizedBox(
+                    height: ekranGenisligi/8,
+                    child: TextButton(
+                      child: Yazi("Yorum Yap", ekranGenisligi/25),
+                      onPressed: (){
+                        print("Yorum yapıldı");
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.deepOrangeAccent,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding:  EdgeInsets.all(ekranYuksekligi/100),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Köfte",
+                    style: TextStyle(
+                      color: Colors.deepOrangeAccent,
+                      fontWeight: FontWeight.bold,
+                      fontSize: ekranGenisligi/20,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Yazi("Izgara Üzerinde Pişirime Uygun", ekranGenisligi/25),
+                      Spacer(),
+                      Yazi("8 Ağustos", ekranGenisligi/25),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding:  EdgeInsets.all(ekranYuksekligi/100),
+              child: Yazi("Köfte harcını hazırlamak için, soğanları rendeleyin ve maydanozları ince ince kıyın. İsterseniz, bir diş sarımsak da ekleyebilirsiniz."
+                  "Soğan, maydanoz, kıyma, yumurta, zeytinyağı ve tuzu bir kaba alıp iyice yoğurun. Bu sırada istediğiniz baharatları da ekleyerek yoğurmaya devam edin."
+                  "Hazırladığınız harcın üzerini streç filmle kapatarak yarım saat buzdolabında dinlendirin."
+                  "Ardından harçtan ceviz büyüklüğünde parçalar koparıp yuvarlayın. 1 cm olacak şekilde üzerine bastırarak yassılaştırın.", ekranGenisligi/25),
+            ),
+          ],
+        ),
+      ),
+
 
  */
