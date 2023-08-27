@@ -40,18 +40,18 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-
-          ],
-        ),
+      body: LayoutBuilder(
+        builder: (BuildContext context , BoxConstraints constraints){
+          if(constraints.maxWidth<600){
+            return TelefonTasarim();
+          }else{
+            return TabletTasarim();
+          }
+        }
       ),
     );
   }
 }
-
 class TabletTasarim extends StatelessWidget {
 
   @override
@@ -60,12 +60,30 @@ class TabletTasarim extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("resimler/stevejabs@2x.png"),
-          Text("Steve Job", style :TextStyle(fontSize: 20.0),)
-          ],
+          Image.asset("resimler/stevejobs@2x.png"),
+          Text("Steve Jobs",style: TextStyle(fontSize: 30.0 ),),
+        ],
       ),
     );
   }
 }
+class TelefonTasarim extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("resimler/stevejobs@1x.png"),
+          Text("Steve Jobs",style: TextStyle(fontSize: 20.0 ),),
+        ],
+      ),
+    );
+  }
+}
+
+
+
 
 
