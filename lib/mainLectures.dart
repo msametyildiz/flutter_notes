@@ -481,7 +481,56 @@ Widget bulunduğu alanda Row içindeyse yatay Column içindeyse dikeyde boş ala
 
     1- Her Ekrana Göre Tasarım Yapmak : (bunu yaparken LayoutBuilder sınıfını kullanıyoruz)
 
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: LayoutBuilder(
+        builder: (BuildContext context , BoxConstraints constraints){
+          if(constraints.maxWidth<600){
+            return TelefonTasarim();
+          }else{
+            return TabletTasarim();
+          }
+        }
+      ),
+    );
+  }
+}
+class TabletTasarim extends StatelessWidget {
 
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("resimler/stevejobs@2x.png"),
+          Text("Steve Jobs",style: TextStyle(fontSize: 30.0 ),),
+        ],
+      ),
+    );
+  }
+}
+class TelefonTasarim extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("resimler/stevejobs@1x.png"),
+          Text("Steve Jobs",style: TextStyle(fontSize: 20.0 ),),
+        ],
+      ),
+    );
+  }
+}
 
 ----------------------------------------------------     Widget Özelleştirme        ----------------------------------------------------------------------
 
