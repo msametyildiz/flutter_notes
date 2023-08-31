@@ -532,6 +532,75 @@ class TelefonTasarim extends StatelessWidget {
   }
 }
 
-----------------------------------------------------     Widget Özelleştirme        ----------------------------------------------------------------------
+----------------------------------------------------     Tasarımı Ekrana Göre Oranlama        ----------------------------------------------------------------------
+    body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: SizedBox(
+                width: 200,
+                height: 100,
+                child: Image.asset("resimler/avatar.png")
+            ),
+          ),
+          Container(width: 400,height: 100,color: Colors.red,),
+          Text("Merhaba",style: TextStyle(fontSize: 20.0),),
+        ],
+      )
+
+      ekrani responsive yapmak için ;
+
+    @override
+      Widget build(BuildContext context) {
+
+        var ekranBilgisi=MediaQuery.of(context);
+        final ekranGenisligi=ekranBilgisi.size.width;
+        final ekranYuksekligi=ekranBilgisi.size.height;
+
+    kısmını ekliyoruz. daha sonra const kısmını silip yeni kodlar ekliyoruz.
+
+     yeni eklenmiş hali :
+
+
+     class _MyHomePageState extends State<MyHomePage> {
+        @override
+        Widget build(BuildContext context) {
+
+          var ekranBilgisi=MediaQuery.of(context);
+          final ekranGenisligi=ekranBilgisi.size.width;
+          final ekranYuksekligi=ekranBilgisi.size.height;
+
+          return Scaffold(
+            appBar: AppBar(
+              backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+              title: Text(widget.title),
+            ),
+            body: Column(
+              children: [
+                Padding(
+                  padding:  EdgeInsets.only(top: ekranYuksekligi/100),
+                  child: SizedBox(
+                      width: ekranGenisligi/2,
+                      height: ekranYuksekligi/5,
+                      child: Image.asset("resimler/avatar.png")
+                  ),
+                ),
+                Container(width: ekranGenisligi,height: ekranYuksekligi/4,color: Colors.red,),
+                Text("Merhaba",style: TextStyle(fontSize: ekranGenisligi/10 ),),
+              ],
+            )
+          );
+        }
+      }
+----------------------------------------------------     Appbar renk değişimi        ----------------------------------------------------------------------
+
+----------------------------------------------------             ----------------------------------------------------------------------
+
+----------------------------------------------------             ----------------------------------------------------------------------
+
+----------------------------------------------------             ----------------------------------------------------------------------
+
+----------------------------------------------------             ----------------------------------------------------------------------
+
 
  */
