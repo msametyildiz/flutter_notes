@@ -593,6 +593,38 @@ class TelefonTasarim extends StatelessWidget {
         }
       }
 ----------------------------------------------------     Appbar renk değişimi        ----------------------------------------------------------------------
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+
+    var ekranBilgisi=MediaQuery.of(context);
+    final ekranGenisligi=ekranBilgisi.size.width;
+    final ekranYuksekligi=ekranBilgisi.size.height;
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding:  EdgeInsets.only(top: ekranYuksekligi/100),
+            child: SizedBox(
+                width: ekranGenisligi/2,
+                height: ekranYuksekligi/5,
+                child: Image.asset("resimler/avatar.png")
+            ),
+          ),
+          Container(width: ekranGenisligi,height: ekranYuksekligi/4,color: Colors.red,),
+          Text("Merhaba",style: TextStyle(fontSize: ekranGenisligi/10 ),),
+        ],
+      )
+    );
+  }
+}
+
+
 
 ----------------------------------------------------             ----------------------------------------------------------------------
 
