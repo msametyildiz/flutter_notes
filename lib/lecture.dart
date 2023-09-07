@@ -865,6 +865,85 @@ body: Center(
     ),
   ),
 ),
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Sadece Body Örneği'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Merhaba, Flutter!',
+                style: TextStyle(fontSize: 24.0),
+              ),
+              SizedBox(height: 20.0),
+              RaisedButton(
+                onPressed: () {
+                  // Butona tıklandığında yapılacak işlem
+                },
+                child: Text('Tıkla'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Sadece Body Örneği 2'),
+        ),
+        body: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Flutter ile hoş geldiniz!',
+                style: TextStyle(fontSize: 24.0),
+              ),
+              SizedBox(height: 20.0),
+              Container(
+                width: 200.0,
+                height: 200.0,
+                color: Colors.blue,
+                child: Center(
+                  child: Text(
+                    'Örnek Kutu',
+                    style: TextStyle(fontSize: 18.0, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 ----------------------------------------------------             ----------------------------------------------------------------------
 
