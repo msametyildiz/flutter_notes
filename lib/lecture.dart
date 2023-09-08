@@ -944,6 +944,55 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter Örnek'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Merhaba, Flutter!',
+                style: TextStyle(fontSize: 24.0),
+              ),
+              SizedBox(height: 20.0),
+              RaisedButton(
+                onPressed: () {
+                  // Butona tıklandığında yapılacak işlem
+                },
+                child: Text('Tıkla'),
+              ),
+              SizedBox(height: 20.0),
+              Container(
+                width: 200.0,
+                height: 200.0,
+                color: Colors.blue,
+                child: Center(
+                  child: Text(
+                    'Örnek Kutu',
+                    style: TextStyle(fontSize: 18.0, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 ----------------------------------------------------             ----------------------------------------------------------------------
 
