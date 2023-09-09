@@ -993,6 +993,66 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('ListView Örneği'),
+        ),
+        body: ListView(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.star),
+              title: Text('Madrid'),
+            ),
+            ListTile(
+              leading: Icon(Icons.star),
+              title: Text('Barcelona'),
+            ),
+            ListTile(
+              leading: Icon(Icons.star),
+              title: Text('Seville'),
+            ),
+            // Daha fazla liste öğesi ekleyebilirsiniz.
+          ],
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Resim Görüntüleme Örneği'),
+        ),
+        body: Center(
+          child: Image.asset(
+            'assets/image.jpg', // Resim dosyasının yolunu belirtin
+            width: 200.0,
+            height: 200.0,
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 ----------------------------------------------------             ----------------------------------------------------------------------
 
