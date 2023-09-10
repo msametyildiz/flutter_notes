@@ -1053,6 +1053,187 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  final List<Color> colors = [Colors.red, Colors.blue, Colors.green, Colors.yellow, Colors.orange];
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Kart Listesi Örneği'),
+        ),
+        body: ListView.builder(
+          itemCount: colors.length,
+          itemBuilder: (context, index) {
+            return Card(
+              color: colors[index],
+              child: ListTile(
+                title: Text('Kart $index'),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  int pageIndex = 0;
+
+  void nextPage() {
+    pageIndex++;
+  }
+
+  void prevPage() {
+    pageIndex--;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Sayfa Gezme Örneği'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Sayfa $pageIndex',
+                style: TextStyle(fontSize: 24.0),
+              ),
+              SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  RaisedButton(
+                    onPressed: () {
+                      prevPage();
+                    },
+                    child: Text('Önceki Sayfa'),
+                  ),
+                  SizedBox(width: 20.0),
+                  RaisedButton(
+                    onPressed: () {
+                      nextPage();
+                    },
+                    child: Text('Sonraki Sayfa'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Form Örneği'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Kullanıcı Adı'),
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Şifre'),
+                  obscureText: true,
+                ),
+                SizedBox(height: 20.0),
+                RaisedButton(
+                  onPressed: () {
+                    // Form verilerini gönderme işlemi
+                  },
+                  child: Text('Gönder'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: FirstPage(),
+    );
+  }
+}
+
+class FirstPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sayfa Geçişi Örneği'),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SecondPage()),
+            );
+          },
+          child: Text('İkinci Sayfaya Git'),
+        ),
+      ),
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('İkinci Sayfa'),
+      ),
+      body: Center(
+        child: Text('Bu ikinci sayfa!'),
+      ),
+    );
+  }
+}
 
 ----------------------------------------------------             ----------------------------------------------------------------------
 
