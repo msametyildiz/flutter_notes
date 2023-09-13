@@ -1,38 +1,56 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String buttonText = 'Düğmeye Tıkla';
-
-  void changeText() {
-    setState(() {
-      buttonText = 'Tıkladın!';
-    });
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-        appBar: AppBar(
-        title: Text('Düğme Örneği'),
-    ),
-    body: Center(
-    child: Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-    Text(
-    buttonText,
-    style: TextStyle(fontSize: 24.0),
-    ),
-    SizedBox(height: 20.0),
-    RaisedButton(
-    onPressed:
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Başlık'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+
+    var ekranBilgisi=MediaQuery.of(context);
+    final ekranGenisligi=ekranBilgisi.size.width;
+    final ekranYuksekligi=ekranBilgisi.size.height;
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+     s
+    );
+  }
+}
+
+
+
+
+
