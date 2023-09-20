@@ -1388,6 +1388,58 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 ----------------------------------------------------             ----------------------------------------------------------------------
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Uzun Metinlerle Sayfa'),
+        ),
+        body: Center(
+          child: Container(
+            width: 300,
+            height: 300,
+            color: Colors.grey[200],
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Başlık 1",
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    "Bu metin kutusu içeriği çok uzun ve taşacak.",
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    "Başlık 2",
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    "Bu metin kutusu içeriği çok uzun ve taşacak. Bu metin kutusu içeriği çok uzun ve taşacak. Bu metin kutusu içeriği çok uzun ve taşacak.",
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 ----------------------------------------------------             ----------------------------------------------------------------------
 
